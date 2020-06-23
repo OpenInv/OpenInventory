@@ -14,7 +14,7 @@
 
         div.mainDiv {
             position: absolute;
-            top: 0%;
+            top: 20px;
             left: 50%;
             transform: translate(-50%,0%);
 
