@@ -47,6 +47,23 @@
             transform: translate(-50%,0%);
             width: 20%;
         }
+        .backToHomepageButton {
+            border: none;
+            color: #000000;
+            background-color: #34eb49;
+            border-radius: 100px;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+
+            position: relative;
+            left: 50%;
+            transform: translate(-50%,0%);
+        }
 
     </style>
 </head>
@@ -55,6 +72,7 @@
         <p class="bigText">Error 404</p>
         <img src="frontend/content/scanner.jpg" class="image"></img> 
         <p class="mainText">Oops! Looks like we forgot to take inventory...</p>
+        <button class="backToHomepageButton" onclick="location.href='/'">Back to Homepage</button>
     </div>
 </body>
 </html>
