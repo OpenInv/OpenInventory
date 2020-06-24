@@ -1,1 +1,12 @@
-ErrorDocument 404 /error404.html
+Options +FollowSymLinks
+Options +Indexes
+RewriteEngine On
+RewriteBase /
+
+# this removes php extention from empty filenames
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# error 404
+ErrorDocument 404 /404.html
