@@ -26,13 +26,10 @@
 <body>
   <?php include "header.html" ?>
   <nav class="breadcrumbs indigo darken-1">
-  <div name="inventory-location-wrapper">
+  <div>
     <div class="nav-wrapper">
-      <div class="left">
+      <div class="left" id="BreadcrumbWrapper">
         <a href="/" class="breadcrumb small material-icons center">home</a>
-        <a href="" class="breadcrumb">Home</a>
-        <a href="" class="breadcrumb">Chase's Room</a>
-        <a href="" class="breadcrumb">Bookshelf</a>
       </div>
     </div>
   </div>
@@ -53,6 +50,26 @@
   <script src="materialize/js/materialize.min.js"></script>
 
   <script>
+    // Add breadcrumbs to navbar
+    console.log("script running")
+    function createBreadcrumbs(array) {
+      console.log("called function")
+      let BreadcrumbWrapper = document.getElementById("BreadcrumbWrapper");
+      for (i = 0; i < array.length; i++) {
+        console.log("created one")
+        let Breadcrumb = document.createElement("a");
+        BreadcrumbWrapper.appendChild(Breadcrumb);
+        Breadcrumb.setAttribute("class","breadcrumb");
+        Breadcrumb.setAttribute("href","?parentId="+array[i]);
+        let textNode = document.createTextNode("Item "+array[i]);
+        Breadcrumb.appendChild(textNode);
+      }
+    }
+      createBreadcrumbs([1,3,4,5])
+
+
+
+
     // Tooltips Javascript
     document.addEventListener('DOMContentLoaded', function() {
       let elems = document.getElementsByName("addButton");
