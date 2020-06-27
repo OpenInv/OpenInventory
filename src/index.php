@@ -9,9 +9,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenInventory Home</title>
+    <style>
+      nav.breadcrumbs {
+        height: 40px;
+        line-height: 40px;
+
+        padding-left: 10px;
+      }
+
+      .breadcrumb {
+        vertical-align: middle;
+      }
+
+    </style>
 </head>
 <body>
   <?php include "header.html" ?>
+  <nav class="breadcrumbs indigo darken-1">
+  <div name="inventory-location-wrapper">
+    <div class="nav-wrapper">
+      <div class="left">
+        <a href="/" class="breadcrumb small material-icons center">home</a>
+        <a href="" class="breadcrumb">Home</a>
+        <a href="" class="breadcrumb">Chase's Room</a>
+        <a href="" class="breadcrumb">Bookshelf</a>
+      </div>
+    </div>
+  </div>
+  </nav>
   <main>
     <div class="item-container">
 
