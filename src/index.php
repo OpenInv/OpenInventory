@@ -31,18 +31,8 @@ echo('hi')
 
 <div class="fixed-action-btn">
   <a ref="#" class="btn-floating red btn-large">
-    <i class="large material-icons">mode_edit</i>
+    <i class="large material-icons">add</i>
   </a>
-   <ul>
-        <li><a ref="#" class="btn-floating blue btn-large"><i 
-         class="large material-icons">insert_chart</i></a></li>
-        <li><a ref="#" class="btn-floating green btn-large"><i 
-         class="large material-icons">format_quotes</i></a></li>
-        <li><a ref="#" class="btn-floating yellow btn-large"><i 
-         class="large material-icons">publish</i></a></li>
-        <li><a ref="#" class="btn-floating orange btn-large"><i 
-         class="large material-icons">attach_file</i></a></li>
-    </ul>
 </div>
 </script>
 </html>
