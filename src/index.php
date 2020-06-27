@@ -1,6 +1,4 @@
 <?php
-include("header.html");
-include("footer.html");
 
 
 ?>
@@ -13,22 +11,29 @@ include("footer.html");
     <title>OpenInventory Home</title>
 </head>
 <body>
-<div class="fixed-action-btn">
-  <a name="addButton" class="btn-floating btn-large blue pulse" data-html="true" data-position="top" data-tooltip="Add an item">
-    <i class="large material-icons">add</i>
-  </a>
-</div> 
+  <?php include "header.html" ?>
+  <main>
+    <div class="item-container">
+
+    </div>
+  </main>
+    
+  <div class="fixed-action-btn">
+    <a name="addButton" class="btn-floating btn-large blue pulse" data-html="true" data-position="top" data-tooltip="Add an item">
+      <i class="large material-icons">add</i>
+    </a>
+  </div> 
 </body>
-<link rel="stylesheet" href="appCss.css">
-<script src="materialize/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="appCss.css">
+  <script src="materialize/js/materialize.min.js"></script>
 
-<script>
-  // Tooltips Javascript
-  document.addEventListener('DOMContentLoaded', function() {
-    let elems = document.getElementsByName("addButton");
-    let options = [0,200,"Add an item",5,300,250,"top",10];
-    let instances = M.Tooltip.init(elems, options);
-  });
+  <script>
+    // Tooltips Javascript
+    document.addEventListener('DOMContentLoaded', function() {
+      let elems = document.getElementsByName("addButton");
+      let options = [0,200,"Add an item",5,300,250,"top",10];
+      let instances = M.Tooltip.init(elems, options);
+    });
 
-</script>
+  </script>
 </html>
