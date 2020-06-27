@@ -1,6 +1,6 @@
 <?php
 include("header.html");
-echo('hi')
+include("footer.html");
 
 
 ?>
@@ -14,25 +14,21 @@ echo('hi')
 </head>
 <body>
 <div class="fixed-action-btn">
-  <a class="btn-floating btn-large red">
-    <i class="large material-icons">mode_edit</i>
-  </a>
-  <ul>
-    <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-    <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-    <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-    <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-  </ul>
-</div> 
-</body>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-<div class="fixed-action-btn">
-  <a ref="#" class="btn-floating red btn-large">
+  <a name="addButton" class="btn-floating btn-large blue pulse" data-html="true" data-position="top" data-tooltip="Add an item">
     <i class="large material-icons">add</i>
   </a>
-</div>
+</div> 
+</body>
+<link rel="stylesheet" href="appCss.css">
+<script src="materialize/js/materialize.min.js"></script>
+
+<script>
+  // Tooltips Javascript
+  document.addEventListener('DOMContentLoaded', function() {
+    let elems = document.getElementsByName("addButton");
+    let options = [0,200,"Add an item",5,300,250,"top",10];
+    let instances = M.Tooltip.init(elems, options);
+  });
+
 </script>
 </html>
