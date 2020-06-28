@@ -1,0 +1,5 @@
+# PYTHON REQUIREMENTS FILE
+
+sqlite3
+barcode
+qrcode
