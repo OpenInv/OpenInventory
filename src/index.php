@@ -51,21 +51,18 @@
 
   <script>
     // Add breadcrumbs to navbar
-    console.log("script running")
-    function createBreadcrumbs(array) {
-      console.log("called function")
+    function createBreadcrumbs(itemArray) {
       let BreadcrumbWrapper = document.getElementById("BreadcrumbWrapper");
-      for (i = 0; i < array.length; i++) {
-        console.log("created one")
+      for (let [name, id] of Object.entries(itemArray)) {
         let Breadcrumb = document.createElement("a");
         BreadcrumbWrapper.appendChild(Breadcrumb);
         Breadcrumb.setAttribute("class","breadcrumb");
-        Breadcrumb.setAttribute("href","?parentId="+array[i]);
-        let textNode = document.createTextNode("Item "+array[i]);
+        Breadcrumb.setAttribute("href","?parentId="+id);
+        let textNode = document.createTextNode(name);
         Breadcrumb.appendChild(textNode);
-      }
-    }
-      createBreadcrumbs([1,3,4,5])
+      };
+    };
+      createBreadcrumbs({"Home":1,"Chase's Room":3,"Bookshelf":5,"Book about Birds":9});
 
 
 
