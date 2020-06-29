@@ -30,4 +30,4 @@ RUN a2enmod rewrite
 # RUN python setupDatabase.py
 
 
-LABEL Author: Chase Carlson <GitHub: @chasedig>
+LABEL Author: Chase Carlson <GitHub: chasedig>
