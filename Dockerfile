@@ -5,7 +5,7 @@ WORKDIR /openinventory
 COPY . .
 
 RUN mv src /var/www/html
-RUN chmod /var/www/html -
+RUN chmod 744 /var/www/html
 
 EXPOSE 80
 
