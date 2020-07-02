@@ -1,33 +1,29 @@
+# INSTALLING BASE IMAGE & SETUP
+
 FROM php:7.4.7-apache
+WORKDIR /openinventory
+COPY . .
 
-WORKDIR /
+RUN mv src /var/www/html
+RUN chmod /var/www/html -
 
-#COPY requirements.txt /var/www
-
-# FROM ubuntu
-
-
-# PHP/APACHE SETUP
-
-#RUN apt-get install php7.4
-
-
-COPY src/ /var/www/html
 EXPOSE 80
 
+# Rewrite apache .htaccess
 RUN a2enmod rewrite
 
 # PYTHON SETUP
 
-#RUN apt-get update && apt-get install -y python3 python3-pip
+#FROM arm32v7/python:3
 
 # Install Python Libraries
-#RUN pip install -r /var/www/requirements.txt 
+
+#RUN pip install -r /openinventory/requirements.txt 
 
 
 # SQLITE DATABASE SETUP
 
-# RUN python setupDatabase.py
+#RUN python /openinventory/setupDatabase.py
 
 
 LABEL Author: Chase Carlson <GitHub: chasedig>
