@@ -10,43 +10,54 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>OpenInventory Home</title>
 	<style>
-	nav.breadcrumbs {
-		height: 40px;
-		line-height: 40px;
 
-		padding-left: 10px;
-	}
+		nav.breadcrumbs {
+			height: 40px;
+			line-height: 40px;
 
-	.breadcrumb-wrapper {   
-    	white-space: nowrap;
-    	overflow: hidden;
-    	direction: rtl;
-	}
+			padding-left: 10px;
+		}
 
-	.breadcrumb {
-		vertical-align: middle;
-	}
+		.breadcrumb {
+			vertical-align: middle;
+		}
 
-	.material-icons {
-		vertical-align: middle;
-	}
+		.material-icons {
+			vertical-align: middle;
+		}
 
-	.breadcrumb:before {
-    	display: inline-block; 
-	}
+		.row { margin-bottom: 0; }
 
-	.row { margin-bottom: 0; }
+		.nav-wrapper.breadcrumb-nav {
+			white-space: nowrap;
+			display: inline;
+		}
 
-	
+		.breadcrumb-wrapper {
+			white-space: nowrap;
+			overflow: hidden;
+			display: inline-block
+		}
+
+		.back-button-wrapper {
+			white-space: nowrap;
+			overflow: hidden;
+			margin-right: 20px;
+			display: inline-block;
+			vertical-align: top;
+		}
 
 	</style>
 </head>
 <body>
 	<?php include "header.html" ?>
 	<nav class="breadcrumbs indigo darken-1">
-		<div class="nav-wrapper row">
-			<div class="left-align breadcrumb-wrapper" id="BreadcrumbWrapper">
-				<a class="breadcrumb" href="/"><i class="material-icons">home</i></a>
+		<div class="left-align nav-wrapper breadcrumb-nav row">
+			<div class="back-button-wrapper">
+				<a class="breadcrumb small material-icons" href="/">arrow_back</a>
+			</div>
+			<div class="left-align breadcrumb-wrapper" id="BreadcrumbWrapper">		
+				<a class="breadcrumb small material-icons" href="/">home</a>
 			</div>
 		</div>
 	</nav>
