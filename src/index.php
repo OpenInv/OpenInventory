@@ -54,7 +54,7 @@
 	<nav class="breadcrumbs indigo darken-1">
 		<div class="left-align nav-wrapper breadcrumb-nav row">
 			<div class="back-button-wrapper">
-				<a class="breadcrumb small material-icons" href="/">arrow_back</a>
+				<a id="backButton" class="breadcrumb small material-icons" href="/">arrow_back</a>
 			</div>
 			<div class="left-align breadcrumb-wrapper" id="BreadcrumbWrapper">		
 				<a class="breadcrumb small material-icons" href="/">home</a>
@@ -79,18 +79,29 @@
 <script>
 	// Add breadcrumbs to navbar
 	function createBreadcrumbs(itemArray) {
-	let BreadcrumbWrapper = document.getElementById("BreadcrumbWrapper");
-	for (let [name, id] of Object.entries(itemArray)) {
-		let Breadcrumb = document.createElement("a");
-		BreadcrumbWrapper.appendChild(Breadcrumb);
-		Breadcrumb.setAttribute("class","breadcrumb");
-		Breadcrumb.setAttribute("href","?parentId="+id);
-		let textNode = document.createTextNode(name);
-		Breadcrumb.appendChild(textNode);
+		let BreadcrumbWrapper = document.getElementById("BreadcrumbWrapper");
+		let itemArrayLength = Object.keys(itemArray).length;
+		let itemKeys = Object.values(itemArray);
+		for (let [name, id] of Object.entries(itemArray)) { // Generates breadcrumbs
+			let Breadcrumb = document.createElement("a");
+			BreadcrumbWrapper.appendChild(Breadcrumb);
+			Breadcrumb.setAttribute("class","breadcrumb");
+			Breadcrumb.setAttribute("href","?parentId="+id);
+			let textNode = document.createTextNode(name);
+			Breadcrumb.appendChild(textNode);
+		};
+		// Set backButton href (link) to be to previous item in array, unless there is only 1 item
+		let backButton = document.getElementById("backButton");
+		console.log("test")
+		console.log(itemArrayLength)
+		if (itemArrayLength > 1) {
+			console.log("more than 1")
+			let parentIdBackButton = itemKeys[itemArrayLength-2];
+			backButton.setAttribute("href","?parentId="+parentIdBackButton);
+		};
 	};
-	};
+
 	createBreadcrumbs({"Home":1,"Chase's Room":3,"Bookshelf":5,"Book about Birds":9});
-	//createBreadcrumbs({"yeeeeeeeeeee":1})
 
 
 
