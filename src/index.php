@@ -1,5 +1,15 @@
 <?php
 
+$itemArray = array(
+	"Home" => 1,
+	"Chase's Room" => 3,
+	"Crates" => 4,
+	"Box" => 9,
+	"Wood Block" => 14,
+	"Termites" => 18,
+	"Abdomen" => 29,
+	"Stomach Acid" => 36
+)
 
 ?>
 
@@ -78,38 +88,42 @@
 
 <script>
 	// Add breadcrumbs to navbar
-	function createBreadcrumbs(itemArray) {
-		let BreadcrumbWrapper = document.getElementById("BreadcrumbWrapper");
-		let itemArrayLength = Object.keys(itemArray).length;
-		let itemKeys = Object.values(itemArray);
-		for (let [name, id] of Object.entries(itemArray)) { // Generates breadcrumbs
-			let Breadcrumb = document.createElement("a");
-			BreadcrumbWrapper.appendChild(Breadcrumb);
+	function createBreadcrumbs(itemObject) {
+		var BreadcrumbWrapperElement = document.getElementById("BreadcrumbWrapper");
+		var itemObjectLength = Object.keys(itemObject).length;
+		var itemKeys = Object.values(itemObject);
+		for (var [name, id] of Object.entries(itemObject)) { // Generates breadcrumbs
+			var Breadcrumb = document.createElement("a");
+			BreadcrumbWrapperElement.appendChild(Breadcrumb);
 			Breadcrumb.setAttribute("class","breadcrumb");
 			Breadcrumb.setAttribute("href","?parentId="+id);
-			let textNode = document.createTextNode(name);
+			var textNode = document.createTextNode(name);
 			Breadcrumb.appendChild(textNode);
 		};
 		// Set backButton href (link) to be to previous item in array, unless there is only 1 item
-		let backButton = document.getElementById("backButton");
-		console.log("test")
-		console.log(itemArrayLength)
-		if (itemArrayLength > 1) {
+		var backButtonElement = document.getElementById("backButton");
+		if (itemObjectLength > 1) {
 			console.log("more than 1")
-			let parentIdBackButton = itemKeys[itemArrayLength-2];
-			backButton.setAttribute("href","?parentId="+parentIdBackButton);
+			var parentIdBackButton = itemKeys[itemObjectLength-2];
+			backButtonElement.setAttribute("href","?parentId="+parentIdBackButton);
+		} else {
+			backButtonElement.parentNode.remove();
 		};
 	};
+	console.log(BreadcrumbWrapper);
 
-	createBreadcrumbs({"Home":1,"Chase's Room":3,"Bookshelf":5,"Book about Birds":9});
+	//var breadcrumbObject = <?php // echo json_encode($itemArray) ?>;
+
+	var breadcrumbObject = <?php echo json_encode($itemArray); ?>;
+	createBreadcrumbs(breadcrumbObject);
 
 
 
 	// Tooltips Javascript
 	document.addEventListener('DOMContentLoaded', function() {
-	let elems = document.getElementsByName("addButton");
-	let options = [0,200,"Add an item",5,300,250,"top",10];
-	let instances = M.Tooltip.init(elems, options);
+		var elems = document.getElementsByName("addButton");
+		var options = [0,200,"Add an item",5,300,250,"top",10];
+		var instances = M.Tooltip.init(elems, options);
 	});
 
 </script>
