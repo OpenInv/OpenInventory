@@ -14,16 +14,18 @@ RUN a2enmod rewrite
 
 # PYTHON SETUP
 
-#FROM arm32v7/python:3
+RUN apt-get update
+RUN apt-get install -y python3
+RUN apt install -y python3-pip
 
 # Install Python Libraries
 
-#RUN pip install -r /openinventory/requirements.txt 
+RUN pip3 install -r /openinventory/requirements.txt 
 
 
 # SQLITE DATABASE SETUP
 
-#RUN python /openinventory/setupDatabase.py
+RUN python3 /openinventory/setupDatabase.py
 
 
 LABEL Author: Chase Carlson <GitHub: chasedig>

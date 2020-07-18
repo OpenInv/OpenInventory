@@ -1,6 +1,4 @@
 # PYTHON REQUIREMENTS FILE
 
-sqlite3
-flask
 barcode
 qrcode
