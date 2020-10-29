@@ -1,4 +1,0 @@
-# PYTHON REQUIREMENTS FILE
-
-barcode
-qrcode

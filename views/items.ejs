@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>OpenInventory Home</title>
+	<style>
+
+		nav.breadcrumbs {
+			height: 40px;
+			line-height: 40px;
+
+			padding-left: 10px;
+		}
+
+		.breadcrumb {
+			vertical-align: middle;
+		}
+
+		.material-icons {
+			vertical-align: middle;
+		}
+
+		.row { margin-bottom: 0; }
+
+		.nav-wrapper.breadcrumb-nav {
+			white-space: nowrap;
+			display: inline;
+		}
+
+		.breadcrumb-wrapper {
+			white-space: nowrap;
+			overflow: hidden;
+			display: inline-block
+		}
+
+		.back-button-wrapper {
+			white-space: nowrap;
+			overflow: hidden;
+			margin-right: 20px;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.text-ellipsis {
+			width: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			display: inline-block;
+			text-overflow: ellipsis;
+		}
+
+		.card-controls {
+			color: white;
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			cursor: pointer;
+			user-select: none;
+		}
+
+	</style>
+	<link rel="stylesheet" href="/static/css/appCss.css">
+	<script src="/static/css/materialize/js/materialize.min.js"></script>
+	
+	<script src="/static/js/items.js"></script>
+</head>
+<body>
+	<nav class="breadcrumbs indigo darken-1">
+		<div class="left-align nav-wrapper breadcrumb-nav row">
+			<div class="back-button-wrapper">
+				<a id="backButton" class="breadcrumb small material-icons" href="/">arrow_back</a>
+			</div>
+			<div class="left-align breadcrumb-wrapper" id="BreadcrumbWrapper">		
+				<a class="breadcrumb small material-icons" href="/items">home</a>
+			</div>
+		</div>
+	</nav>
+<main>
+	<div>
+		<div class="row">
+
+
+				<div id="item-container">
+					<template id="item-card-template">
+						<div class="col">
+							<div class="card" style="width: 20vh;">
+								<div class="card-image">
+									<a name="card-image-link" href=""><img name="card-image" style="width: 100%;" src="https://richmondrack.com/wp-content/uploads/new-shelving-2.jpg"><img></a>
+									<a name="card-action" class="card-controls dropdown-trigger" data-target="itemDropdown"><i class="material-icons">more_vert</i></a>
+									<ul name="card-dropdown" id="itemDropdown" class='dropdown-content' data-itemId="">
+										<li><a><i class="material-icons">edit</i>Edit</a></li>
+										<li><a><i class="material-icons">add</i>Add item</a></li>
+										<li><a style="color: #a83246;"><i class="material-icons">delete</i>Delete</a></li>
+									</ul>
+								</div>
+								</a>
+								<a name="card-content-link" href="">
+								<div class="card-content" style="color: black;">
+									<span name="card-title" class="card-title">Shelf #1</span>
+									<p name="card-description" class="text-concat text-ellipsis">Some nice shelves that have yet to have stuff on them</p>
+								</div>
+								</a>
+							</div>
+						</div>
+					</template>
+
+				</div>
+			</div>	  
+	</div>
+</main>
+
+<script>
+	var breadcrumbs = JSON.parse('<%- breadcrumbs %>');
+	createBreadcrumbs(breadcrumbs);
+
+	var items = JSON.parse('<%- items %>');
+	items.forEach(item => {
+		createItemBox(item["id"], item["title"], item["description"], item["image"]);
+	});
+</script>
+
+<div class="fixed-action-btn">
+	<a name="addButton" class="btn-floating btn-large blue pulse" data-html="true" data-position="top" data-tooltip="Add an item">
+	<i class="large material-icons">add</i>
+	</a>
+</div> 
+</body>
+
+</html>
