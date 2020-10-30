@@ -1,20 +1,25 @@
-const app_root_path = require("app-root-path");
-
-require('dotenv').config()
-global.reqlib = app_root_path.require;
-
 const express = require("express");
 const app = express();
 const http = require("http").createServer(app);
 const path = require("path");
+const favicon = require('serve-favicon');
 
+const appRoot = require("app-root-path");
 
-app.set("view engine","ejs") // EJS Web Rendering Engine //
-app.use("/static", express.static(path.join(__dirname, "/routes/public")));
+require('dotenv').config();
+global.reqlib = appRoot.require;
+
+app.use(favicon(path.join(__dirname, "/routes/public/favicon.ico"))); // Favicon
+app.set("view engine","ejs"); // EJS Web Rendering Engine //
+app.use("/static", express.static(path.join(__dirname, "/routes/public"))); // Static content; JS, CSS, Images
 
 // Routing
 
 app.use("/",require("./routing.js"));
+
+app.use(function (req,res){
+	res.status(404).render(appRoot + "/views/404");
+});
 
 // Webserver
 

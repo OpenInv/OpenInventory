@@ -59,6 +59,19 @@
 			user-select: none;
 		}
 
+		@media (orientation: landscape) {
+			:root {
+				--cards: 5;
+			}
+		}
+
+
+		@media (orientation: portrait) {
+			:root {
+				--cards: 2;
+			}
+		}
+
 	</style>
 	<link rel="stylesheet" href="/static/css/appCss.css">
 	<script src="/static/css/materialize/js/materialize.min.js"></script>
@@ -78,15 +91,15 @@
 	</nav>
 <main>
 	<div>
-		<div class="row">
+		<div class="row" style="width: 100%; margin: 0; padding: 0;">
 
 
 				<div id="item-container">
 					<template id="item-card-template">
-						<div class="col">
-							<div class="card" style="width: 20vh;">
+						<div class="col" style="width: calc( (100%/var(--cards)) - (10px * (2)) ); padding: 0; margin: 10px;">
+							<div class="card">
 								<div class="card-image">
-									<a name="card-image-link" href=""><img name="card-image" style="width: 100%;" src="https://richmondrack.com/wp-content/uploads/new-shelving-2.jpg"><img></a>
+									<a name="card-image-link" href=""><img name="card-image" style="object-fit: cover; height: 30vh; width: 100%" src="https://richmondrack.com/wp-content/uploads/new-shelving-2.jpg"><img></a>
 									<a name="card-action" class="card-controls dropdown-trigger" data-target="itemDropdown"><i class="material-icons">more_vert</i></a>
 									<ul name="card-dropdown" id="itemDropdown" class='dropdown-content' data-itemId="">
 										<li><a><i class="material-icons">edit</i>Edit</a></li>
@@ -97,8 +110,8 @@
 								</a>
 								<a name="card-content-link" href="">
 								<div class="card-content" style="color: black;">
-									<span name="card-title" class="card-title">Shelf #1</span>
-									<p name="card-description" class="text-concat text-ellipsis">Some nice shelves that have yet to have stuff on them</p>
+									<span name="card-title" class="card-title text-ellipsis">Shelf #1</span>
+									<p name="card-description" class="text-ellipsis">Some nice shelves that have yet to have stuff on them</p>
 								</div>
 								</a>
 							</div>
