@@ -20,7 +20,7 @@ function loadBreadcrumbs()
 		BreadcrumbWrapperElement.innerHTML = ""; // Delete children
 		var itemObjectLength = Object.keys(itemObject).length;
 		var itemKeys = Object.values(itemObject);
-		for (var [name, id] of Object.entries(itemObject)) { // Generates breadcrumbs
+		for (var [id, name] of Object.entries(itemObject)) { // Generates breadcrumbs
 			var Breadcrumb = document.createElement("a");
 			BreadcrumbWrapperElement.appendChild(Breadcrumb);
 			Breadcrumb.setAttribute("class","breadcrumb");
@@ -67,22 +67,21 @@ function loadItems()
 		clone.querySelector('[name="card-content-link"]').href = "?parentId="+id;
 
 		var targetName = "itemDropdown"+id;
-		clone.querySelector('[name="card-action"]').dataset.target = targetName;
+		var cardAction = clone.querySelector('[name="card-action"]')
+		cardAction.dataset.target = targetName;
 		clone.querySelector('[name="card-dropdown"]').id = targetName;
 		itemContainer.appendChild(clone);
-	}
-
-
-	// Tooltips Javascript
-	document.addEventListener('DOMContentLoaded', function() {
-		var addButtons = document.getElementsByName("addButton");
-		var options = [0,200,"Add an item",5,300,250,"top",10];
-		var instances = M.Tooltip.init(addButtons, options);
-
 		var elems = document.querySelectorAll('.dropdown-trigger');
-		var instances = M.Dropdown.init(elems, []);
-	});
+		var instances = M.Dropdown.init(cardAction, []);
+	}
 }
+
+// Tooltips Javascript
+document.addEventListener('DOMContentLoaded', function() {
+	var addButtons = document.getElementsByName("addButton");
+	var options = [0,200,"Add an item",5,300,250,"top",10];
+	var instances = M.Tooltip.init(addButtons, options);
+});
 
 loadBreadcrumbs();
 loadItems();
