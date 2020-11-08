@@ -19,7 +19,7 @@ router.get("/setup", (req, res) => { // Main Index Page
 	res.render(appRoot + "/views/setupSignup");
 });
 
-router.use("/api",require("./routes/app/api.js"))
+router.use("/api",require("./routes/api/api.js"));
 
 
 module.exports = router;
