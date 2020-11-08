@@ -25,7 +25,7 @@ app.use((req, res) => {
 
 http.listen(80, '0.0.0.0', () => { // Start Webserver
 	// Startup logs
-	console.log("Whiteboard Webserver");
+	console.log("OpenInventory Webserver");
 	console.log("Node.js Express Webserver started on Port 80");
 	// Startup logs
 });
