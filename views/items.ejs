@@ -92,52 +92,42 @@
 <main>
 	<div>
 		<div class="row" style="width: 100%; margin: 0; padding: 0;">
-
-
-				<div id="item-container">
-					<template id="item-card-template">
-						<div class="col" style="width: calc( (100%/var(--cards)) - (10px * (2)) ); padding: 0; margin: 10px;">
-							<div class="card">
-								<div class="card-image">
-									<a name="card-image-link" href=""><img name="card-image" style="object-fit: cover; height: 30vh; width: 100%" src="https://richmondrack.com/wp-content/uploads/new-shelving-2.jpg"><img></a>
-									<a name="card-action" class="card-controls dropdown-trigger" data-target="itemDropdown"><i class="material-icons">more_vert</i></a>
-									<ul name="card-dropdown" id="itemDropdown" class='dropdown-content' data-itemId="">
-										<li><a><i class="material-icons">edit</i>Edit</a></li>
-										<li><a><i class="material-icons">add</i>Add item</a></li>
-										<li><a style="color: #a83246;"><i class="material-icons">delete</i>Delete</a></li>
-									</ul>
-								</div>
-								</a>
-								<a name="card-content-link" href="">
-								<div class="card-content" style="color: black;">
-									<span name="card-title" class="card-title text-ellipsis">Shelf #1</span>
-									<p name="card-description" class="text-ellipsis">Some nice shelves that have yet to have stuff on them</p>
-								</div>
-								</a>
+			<div id="item-container">
+				
+				<template id="item-card-template">
+					<div class="col" style="width: calc( (100%/var(--cards)) - (10px * (2)) ); padding: 0; margin: 10px;">
+						<div class="card">
+							<div class="card-image">
+								<a name="card-image-link" href=""><img name="card-image" style="object-fit: cover; height: 30vh; width: 100%" src=""><img></a>
+								<a name="card-action" class="card-controls dropdown-trigger" data-target="itemDropdown"><i class="material-icons">more_vert</i></a>
+								<ul name="card-dropdown" id="itemDropdown" class='dropdown-content' data-itemId="">
+									<li><a><i class="material-icons">visibility</i>View</a></li>
+									<li><a><i class="material-icons">edit</i>Edit</a></li>
+									<li><a><i class="material-icons">add</i>Add item</a></li>
+									<li><a style="color: #a83246;"><i class="material-icons">delete</i>Delete</a></li>
+								</ul>
 							</div>
+							<a name="card-content-link" href="">
+							<div class="card-content" style="color: black;">
+								<span name="card-title" class="card-title text-ellipsis">Shelf #1</span>
+								<p name="card-description" class="text-ellipsis">Some nice shelves that have yet to have stuff on them</p>
+							</div>
+							</a>
 						</div>
-					</template>
-
-				</div>
-			</div>	  
+					</div>
+				</template>
+				
+			</div>
+		</div>
 	</div>
 </main>
-
-<script>
-	var breadcrumbs = JSON.parse('<%- breadcrumbs %>');
-	createBreadcrumbs(breadcrumbs);
-
-	var items = JSON.parse('<%- items %>');
-	items.forEach(item => {
-		createItemBox(item["id"], item["title"], item["description"], item["image"]);
-	});
-</script>
 
 <div class="fixed-action-btn">
 	<a name="addButton" class="btn-floating btn-large blue pulse" data-html="true" data-position="top" data-tooltip="Add an item">
 	<i class="large material-icons">add</i>
 	</a>
-</div> 
+</div>
+
 </body>
 
 </html>

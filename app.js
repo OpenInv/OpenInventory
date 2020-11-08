@@ -17,7 +17,7 @@ app.use("/static", express.static(path.join(__dirname, "/routes/public"))); // S
 
 app.use("/",require("./routing.js"));
 
-app.use(function (req,res){
+app.use((req, res) => {
 	res.status(404).render(appRoot + "/views/404");
 });
 
